@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>검색 결과</title>
+</head>
+<body>
+    <h1>검색 결과</h1>
+    {% if results %}
+    <table>
+        <tr>
+            <th>년</th>
+            <th>월</th>
+            <th>층</th>
+            <th>거래금액</th>
+            <th>전용면적</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+            <td>{{ result[2] }}</td>
+            <td>{{ result[3] }}</td>
+            <td>{{ result[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>해당하는 매매가 이루어지지 않았습니다.</p>
+    {% endif %}
+</body>
+</html>

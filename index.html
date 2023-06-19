@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>아파트 실거래가 조회</title>
+    <script>
+        function submitForm(action) {
+            var form = document.getElementById('searchForm');
+            form.action = action;
+            form.submit();
+        }
+    </script>
+</head>
+<body>
+    <h1>아파트 실거래가 정보 조회</h1>
+    <form id="searchForm" method="POST">
+        <label for="district">법정동:</label>
+        <input type="text" id="district" name="법정동">
+        <br>
+        <label for="apartment">아파트:</label>
+        <input type="text" id="apartment" name="아파트">
+        <br>
+        <br>
+        <input type="submit" value="검색" onclick="submitForm('{{ url_for('search') }}')">
+    </form>
+    <br>
+    <h1>아파트 실거래가 예측</h1>
+    <form id="predictionForm" method="POST" action="{{ url_for('prediction') }}">
+        <label for="district">법정동:</label>
+        <input type="text" id="district" name="법정동">
+        <br>
+        <label for="apartment">아파트:</label>
+        <input type="text" id="apartment" name="아파트">
+        <br>
+        <label for="predicted_year">예측 연도:</label>
+        <input type="number" id="predicted_year" name="predicted_year">
+        <br>
+        <label for="predicted_month">예측 월:</label>
+        <input type="number" id="predicted_month" name="predicted_month">
+        <br>
+        <br>
+        <input type="submit" value="예측하기" onclick="submitForm('{{ url_for('prediction') }}')">
+    </form>
+</body>
+</html>
